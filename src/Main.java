@@ -1,15 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Animal[] animals = new Animal[6];
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        animals[0] = new Mammal("Bear", 5, 250, "Carnivora");
+        animals[1] = new Dog("Rex", 3, 30, "Carnivora", "German Shepherd");
+        animals[2] = new Bird("Eagle", "Brown");
+        animals[3] = new Pigeon("Sky", 2, 1, "Grey", "Rock Pigeon");
+        animals[4] = new Fish();
+        animals[5] = new Blowfish("Puffy", "Yellow", 25);
+
+        animals[4].setName("Goldie");
+
+        for (int i = 0; i < animals.length; i++) {
+            System.out.println("--- Index " + i + " ---");
+            System.out.println(animals[i].toString());
+            animals[i].getVoice();
+            animals[i].eat("food");
         }
+
+        System.out.println("\n--- Calling specific methods ---");
+        ((Mammal) animals[0]).drinkMilk();
+        ((Dog) animals[1]).aport();
+        ((Bird) animals[2]).fly();
+        ((Pigeon) animals[3]).deliverMail();
+        ((Fish) animals[4]).swim();
+        ((Blowfish) animals[5]).inflate();
     }
 }
